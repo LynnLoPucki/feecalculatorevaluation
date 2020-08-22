@@ -1,3 +1,4 @@
+install.packages("survey")
 library(survey)
 #' Evaluation
 #'
