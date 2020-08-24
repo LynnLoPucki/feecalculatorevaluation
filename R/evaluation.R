@@ -1,5 +1,4 @@
 install.packages("survey")
-library(survey)
 #' Evaluation
 #'
 #' Bankruptcy fees evaluation function
@@ -7,6 +6,7 @@ library(survey)
 #' @export
 #' @param input. Required.
 evaluation <- function(inputformula, inputvalues) {
+	library(survey)
 	useformula <- as.formula(inputformula)
 	usevalues <- as.data.frame(inputvalues)
 	design31 <- svydesign(id = ~casenumber, weights = ~pweight, data = evaluationdata)
