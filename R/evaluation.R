@@ -5,12 +5,13 @@
 #' @export
 #' @param input. Required.
 evaluation <- function(inputformula, inputvalues) {
+	library(survey)
 	useformula <- as.formula(inputformula)
 	usevalues <- as.data.frame(inputvalues)
-	design31 <- svydesign(id = ~casenumber, weights = ~pweight, data = evaluationdata)
-	model31 <- svyglm(lnfeeexpord ~ lnassets + prepack + preneg + lnsales + xyearfiled + shop, design = design31)
-	newdata1 <- with(data, usevalues)
-	pred <- predict(model31, newdata = newdata1, se.fit = T)
+	design34 <- svydesign(id = ~casenumber, weights = ~pweight, data = evaluationdata)
+	model34 <- svyglm(lnfeeexpord ~ lnroles + lnassets + lndaysin + yearconfirmed + lnemployees + shop + saleall, design = design34)
+	newdata1 <- with(evaluationdata, usevalues)
+	pred <- predict(model34, newdata = newdata1, se.fit = T)
 	efit <- pred[1]
 	lfit <- efit - 1.44 * sqrt(attr(pred, "var")) / .97
 	hfit <- efit + 1.44 * sqrt(attr(pred, "var")) / .97
