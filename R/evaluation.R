@@ -1,4 +1,3 @@
-install.packages("survey")
 #' Evaluation
 #'
 #' Bankruptcy fees evaluation function
@@ -6,6 +5,7 @@ install.packages("survey")
 #' @export
 #' @param input. Required.
 evaluation <- function(inputformula, inputvalues) {
+	install.packages("survey")
 	library(survey)
 	useformula <- as.formula(inputformula)
 	usevalues <- as.data.frame(inputvalues)
