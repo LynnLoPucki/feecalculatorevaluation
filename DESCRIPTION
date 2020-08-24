@@ -8,3 +8,4 @@ Maintainer: David <dschnelldavis@gmail.com>
 Description: This package estimates bankruptcy professional fee and expense awards.
 License: Apache2
 LazyData: true
+Imports: survey
